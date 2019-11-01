@@ -1,2 +1,3 @@
-# idea-plugins
 develop idea plugins
+
+- memo
