@@ -234,12 +234,14 @@ public class MemoPanel extends JBPanel<MemoPanel> {
 
     private void arrangeLayout() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setPreferredSize(new Dimension(300, 500));
+        this.setPreferredSize(new Dimension(420, 500));
 
         // table
         JScrollPane tablePane = new JBScrollPane(table);
-        table.getColumnModel().getColumn(0).setPreferredWidth(30);
-        tablePane.setPreferredSize(new Dimension(290, 300));
+        table.getColumnModel().getColumn(0).setPreferredWidth(42);
+        table.getColumnModel().getColumn(1).setPreferredWidth(126);
+        table.setRowHeight(25);
+        tablePane.setPreferredSize(new Dimension(400, 300));
 
         // label
         JPanel labelPanel = new JBPanel<>();
@@ -249,9 +251,8 @@ public class MemoPanel extends JBPanel<MemoPanel> {
         labelPanel.add(Box.createHorizontalGlue());
 
         // content
-        JPanel contentPanel = new JBPanel<>();
-        contentArea.setPreferredSize(new Dimension(290, 120));
-        contentPanel.add(contentArea);
+        JScrollPane contentPane = new JBScrollPane(contentArea);
+        contentPane.setPreferredSize(new Dimension(400, 120));
 
         // button
         JPanel buttonPanel = new JBPanel<>();
@@ -265,7 +266,7 @@ public class MemoPanel extends JBPanel<MemoPanel> {
         this.add(Box.createVerticalStrut(5));
         this.add(labelPanel);
         this.add(Box.createVerticalStrut(5));
-        this.add(contentPanel);
+        this.add(contentPane);
         this.add(Box.createVerticalStrut(5));
         this.add(buttonPanel);
     }
