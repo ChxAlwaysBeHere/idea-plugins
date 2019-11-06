@@ -2,14 +2,19 @@
     <id>com.chx.plugin.memo</id>
     <name>Memo</name>
     <version>1.0</version>
-    <vendor email="chenxi20080806@126.com" url="http://www.mycompany.com">MyCompany</vendor>
+    <vendor email="chenxi20190807@foxmail.com" url="https://github.com/ChxAlwaysBeHere">ChxAlwaysBeHere</vendor>
 
     <description><![CDATA[
-      简易备忘录
+      <p>
+        A simple memo used to record.
+        Use shortcut Control + M.
+      </p>
     ]]></description>
 
     <change-notes><![CDATA[
-      创建、查阅备忘录事项
+      <ul>
+        <li>version 1.0 record notes</li>
+      </ul>
     ]]>
     </change-notes>
 
@@ -29,7 +34,7 @@
     <actions>
         <!-- Add your actions here -->
         <group id="Memo.MemoMenu" text="Memo" description="Record and Remember">
-            <add-to-group group-id="MainMenu" anchor="last"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
             <action id="MemoAction" class="com.chx.plugin.memo.MemoAction" text="Memo" description="Record and Remember"
                     icon="/icons/pencil.jpg">
                 <keyboard-shortcut first-keystroke="meta M" keymap="$default"/>
