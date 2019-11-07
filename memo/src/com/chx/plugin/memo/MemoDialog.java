@@ -24,7 +24,6 @@ public class MemoDialog extends DialogWrapper {
     protected JComponent createCenterPanel() {
         MemoApplicationComponent applicationComponent = ApplicationManager.getApplication().getComponent(MemoApplicationComponent.class);
         Memos state = applicationComponent.getMemos();
-
         return new MemoPanel(state);
     }
 

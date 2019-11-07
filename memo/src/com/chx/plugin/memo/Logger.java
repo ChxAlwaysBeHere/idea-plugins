@@ -18,7 +18,7 @@ public class Logger {
 
     public static void init() {
         if (initialized.compareAndSet(false, true)) {
-            NotificationsConfiguration.getNotificationsConfiguration().register(DISPLAY_GROUP, NotificationDisplayType.NONE);
+            NotificationsConfiguration.getNotificationsConfiguration().register(DISPLAY_GROUP, NotificationDisplayType.TOOL_WINDOW);
         }
     }
 

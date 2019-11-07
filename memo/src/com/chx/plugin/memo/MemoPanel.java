@@ -48,7 +48,12 @@ public class MemoPanel extends JBPanel<MemoPanel> {
 
     public MemoPanel(Memos state) {
         this.state = state;
-        init();
+
+        try {
+            init();
+        } catch (Exception e) {
+            Logger.error("Fail to initialize Memo");
+        }
     }
 
     public void init() {
@@ -155,21 +160,28 @@ public class MemoPanel extends JBPanel<MemoPanel> {
             public void valueChanged(ListSelectionEvent e) {
                 int viewRowIndex = table.getSelectedRow();
                 if (viewRowIndex < 0) {
-                    contentArea.setText("");
+                    if (Objects.nonNull(contentArea)) {
+                        contentArea.setText("");
+                    }
                 } else {
                     int modelRowIndex = table.getRowSorter().convertRowIndexToModel(viewRowIndex);
-                    if (Objects.isNull(contentArea)) {
-                        initContentArea();
+                    if (Objects.nonNull(contentArea)) {
+                        String content = items.get(modelRowIndex).getContent();
+                        contentArea.setText(content);
                     }
-                    String content = items.get(modelRowIndex).getContent();
-                    contentArea.setText(content);
                 }
             }
         });
+        table.clearSelection();
+        table.getSelectionModel().setSelectionInterval(0, 0);
     }
 
     protected void initContentArea() {
         contentArea = new JTextArea("");
+        if (table.getSelectedRow() >= 0) {
+            int modelRowIndex = table.getRowSorter().convertRowIndexToModel(table.getSelectedRow());
+            contentArea.setText(state.getItems().get(modelRowIndex).getContent());
+        }
         contentArea.getDocument().addDocumentListener(new DocumentAdapter() {
             @Override
             protected void textChanged(DocumentEvent event) {
@@ -232,7 +244,7 @@ public class MemoPanel extends JBPanel<MemoPanel> {
         });
     }
 
-    private void arrangeLayout() {
+    protected void arrangeLayout() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(420, 500));
 
