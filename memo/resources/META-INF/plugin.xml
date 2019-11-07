@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.chx.plugin.memo</id>
     <name>Memo</name>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <vendor email="chenxi20190807@foxmail.com" url="https://github.com/ChxAlwaysBeHere">ChxAlwaysBeHere</vendor>
 
     <description><![CDATA[
@@ -13,7 +13,7 @@
 
     <change-notes><![CDATA[
       <ul>
-        <li>version 1.0 record notes</li>
+        <li>version 1.0.1 record notes</li>
       </ul>
     ]]>
     </change-notes>
