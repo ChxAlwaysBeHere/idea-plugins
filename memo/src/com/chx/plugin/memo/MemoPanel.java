@@ -178,6 +178,7 @@ public class MemoPanel extends JBPanel<MemoPanel> {
 
     protected void initContentArea() {
         contentArea = new JTextArea("");
+        contentArea.setLineWrap(true);
         if (table.getSelectedRow() >= 0) {
             int modelRowIndex = table.getRowSorter().convertRowIndexToModel(table.getSelectedRow());
             contentArea.setText(state.getItems().get(modelRowIndex).getContent());
